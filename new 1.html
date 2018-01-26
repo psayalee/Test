@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+<select id="sel">
+        <option value="">-- Select --</option>
+    </select>
+<div id="dvProdList"></div>
+</body>
+<script>
+    var jsonarray={
+
+   "products": [
+
+      {
+         "name": "Levis Blue Denim",
+         "imgPath": "images/prods/levisbluedemin01.jpg"
+      },
+
+      {
+
+         "name": "Pepe Black Jeans",
+         "imgPath": "images/prods/pepeblackjeans01.jpg"
+      },
+
+      {
+	  "name": "Pepe Blue Jeans",
+         "imgPath": "images/prods/pepebluejeans01.jpg"
+      }
+
+  ]
+
+}
+
+$(document).ready(function () {
+
+  var jsonURL  ={
+
+   "products": [
+
+      {
+         "name": "Levis Blue Denim",
+         "imgPath": "images/prods/levisbluedemin01.jpg"
+      },
+
+      {
+
+         "name": "Pepe Black Jeans",
+         "imgPath": "images/prods/pepeblackjeans01.jpg"
+      },
+
+      {
+	  "name": "Pepe Blue Jeans",
+         "imgPath": "images/prods/pepebluejeans01.jpg"
+      }
+
+  ]
+
+};
+
+  $.getJSON(jsonURL, function (json)
+
+  {
+
+    var imgList= "";
+
+    $.each(json.products, function () {
+
+      imgList += '<li><img src= "' + this.imgPath + '"></li>';
+
+    });
+
+ 
+
+   $('#dvProdList').append(imgList);
+
+  });
+
+});
+
+</script>
+</html>
+
+
+
